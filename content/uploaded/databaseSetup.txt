@@ -1,0 +1,88 @@
+THIS IS THE INITIAL SETUP FOR ALL DATABASE TESTING.
+---------------------------------------------------
+DROP DATABASE IF EXISTS `datacorpdb`;
+
+CREATE DATABASE IF NOT EXISTS `datacorpdb`;
+
+USE `datacorpdb`;
+
+CREATE TABLE IF NOT EXISTS `authorizedusers` (
+  `uname` varchar(32) NOT NULL,
+  `secret` varchar(40) DEFAULT NULL,
+  `role` varchar(1) DEFAULT NULL,
+  `reset` varchar(40) DEFAULT NULL,
+  `probation` tinyint(1) NOT NULL DEFAULT '0',
+  `banned` tinyint(1) NOT NULL DEFAULT '0'
+);
+
+CREATE TABLE IF NOT EXISTS `primarycategorydb` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(125) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `secondarycategorydb` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `primaryID` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `topicsdb` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(175) NOT NULL,
+  `primaryID` int(11) NOT NULL,
+  `secondaryID` int(11) NOT NULL,
+  `type` varchar(1) NOT NULL,
+  `url` varchar(125) NOT NULL,
+  `contents` longtext,
+  PRIMARY KEY (`id`)
+);
+
+CREATE USER user1@localhost IDENTIFIED BY 'pass1';
+GRANT SELECT,INSERT,UPDATE,DELETE ON `datacorpdb`.* TO user1;
+---------------------------------------------------
+
+MORE DEVELOPMENT IS NEEDED TO INCORPORATE FOREIGN KEY CONSTRAINTS, and UNIQUE VALUES.
+---------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `authorizedusers` (
+  `uname` varchar(32) NOT NULL UNIQUE,
+  `secret` varchar(40) DEFAULT NULL,
+  `role` varchar(1) DEFAULT NULL,
+  `reset` varchar(40) DEFAULT NULL,
+  `probation` tinyint(1) NOT NULL DEFAULT '0',
+  `banned` tinyint(1) NOT NULL DEFAULT '0'
+);
+
+CREATE TABLE IF NOT EXISTS `primarycategorydb` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(125) NOT NULL UNIQUE,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `secondarycategorydb` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL UNIQUE,
+  `primaryID` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `foreign_pid1` FOREIGN KEY(`primaryID`) REFERENCES `primarycategorydb`(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `topicsdb` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(175) NOT NULL UNIQUE,
+  `primaryID` int(11) NOT NULL,
+  `secondaryID` int(11) NOT NULL,
+  `type` varchar(1) NOT NULL,
+  `url` varchar(125) NOT NULL UNIQUE,
+  `contents` longtext,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `foreign_pid2` FOREIGN KEY(`primaryID`) REFERENCES `primarycategorydb`(`id`),
+  CONSTRAINT `foreign_sid2` FOREIGN KEY(`secondaryID`) REFERENCES `secondarycategorydb`(`id`)
+);
+
+CREATE USER `user1@localhost` IDENTIFIED BY 'pass1';
+GRANT SELECT,INSERT,UPDATE,DELETE ON `datacorpdb`.* TO user1;
+---------------------------------------------------
+

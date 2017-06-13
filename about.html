@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Progress and Development Log</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body { font: normal 100%/1.3 "Segoe Media Center","Lucida Sans Unicode","Arial";  }
+        </style>
+    </head>
+    <body>
+        <h3>Current Progress and Development</h3>
+        <p>When Progress has completed enough replace this link with a proper about.php file to reflect cms input.<p>
+        <p>Access to this file should still be accessible using a .html extension through the browser.</p>
+        <ul>
+            <li>Created the initial UI design.</li>
+            <li>
+                Structured the (4) primary locations.
+                <ul>
+                    <li>head.php</li>
+                    <li>nav.php</li>
+                    <li>mainContent.php</li>
+                    <li>footer.php</li>
+                    <ul>
+                        <li>minor css adjustments for a responsive design(primarily focusing on an alternative navigation).</li>
+                        <li>style.css</li>
+                    </ul>
+                </ul>
+            </li>
+            <li>
+                Finished the initial frontend look and feel for the head.
+            </li>
+            <li>
+                For testing purposes, you can register as a user to see an alternate manage.php response.
+                <br/>
+                or by signing in without information for full access to the cms system.
+                <br/>
+                This feature will be removed after basic login functionality has been established.
+            </li>
+            <li>
+                Completed the (form and backend) registration functionality for (general registration).
+            </li>
+            <ul>
+                <li>Manage.php now includes the cms UI templates, </li>
+                <li>
+                    And started the basics for changing the,
+                    <ul>
+                        <li>Company Name</li>
+                        <li>Company Brief</li>
+                        <li>Primary Categories</li>
+                    </ul>
+                </li>
+            </ul>
+            <li>Progressively refactoring the files/directory/and contents to reflect a more modular design.</li>
+            <li>
+                Changes to the Primary Categories manager.
+                <ul>
+                    <li>Completed the functionality to include/delete categories from those displayed in the browser.</li>
+                    <li>Completed functionality to persist these changes in the database.</li>
+                    <li>Incorporated debugging components through setting $debug to either TRUE or FALSE.</li>
+                    <li>relevant files: cmsDatabaseManager, TestSuite5, dbAuth, cmsAJAXRequest, primeEditor and phpJsConversions.
+                </ul>
+            </li>
+            <li>
+                Changes to the Secondary Categories manager.
+                <ul>
+                    <li>Completed the functionality to include/delete categories from those displayed in the browser.</li>
+                    <li>Completed functionality to persist these changes in the database.</li>
+                </ul>
+            </li>
+            <li>
+                Changes to the Manage All Users GUI Editor.
+                <ul>
+                    <li>Included place-holders for the sections that need to be included later.</li>
+                    <li>
+                        Change Permissions.
+                        <ul>
+                            <li>Completed CRUD functionality.</li>
+                            <li>And reflected the changes made dynamically in the GUI.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Users can now login.
+                <ul>
+                    <li>For testing purposes set $testAllManagerGUIS to true, in login.php .</li>
+                </ul>
+            </li>
+            <li>Primary Category Drop-Downs now update dynamically after updating the database using the GUI.</li>
+            <li>Secondary Category Drop-Downs are now also being updated dynamically.</li>
+            <li>The GUI for creating/editing/deleting topics only let's you select the registered sub-categories for the selected primary.</li>
+            <li>Started creating the functionality for the Topics Editor Content Creation User Interface.</li>
+            <li>Improved the Css to better reflect the other pages.</li>
+            <li>
+                The topics manager GUI is now fully functional, and dynamically regenerates content with user interaction.
+                <ul>
+                    <li>When Adding Topics they are sent to the database, and on success then visually represented in the options available.</li>
+                    <li>Similarly when removing a topic, they are removed from the database, and on success then removed from the options available</li>
+                    <li>When selecting a new sub-category the topics shown only include those for that specific primary and secondary topic combination.</li>
+                </ul>
+            </li>
+            <li>
+                Basic functionality for the topics editor has been established,
+                <ul>
+                    <li>Working on features to upload user development content to the server.</li>
+                    <li>Include a Link here to see a list of all uploaded generated HTML files.</li>
+                    <li><a href="SeeAllUserGeneratedContent.php" target="_blank">See All User Generated Content.</a></li>
+                </ul>
+            </li>
+            <li>
+                Currently in development stages,
+                <ul>
+                    <li>New users are register in the role of a website administrator.</li>
+                    <li>Here you can easy add other users for specific roles such as a content creator, mediator, or general user.</li>
+                    <li>Each role will have different GUI Editors available while managing their account.</li>
+                    <li>Administrators will be able to create and remove the categories used by content creators</li>
+                    <li>Content Creators gain access to a user interface to dynamically generate edit content, save drafts, and upload the final result as HTML.</li>
+                    <li>Mediators are currently able to modify user permissions.</li>
+                    <li>General users are shown their current status.</li>
+                </ul>
+            </li>
+            <li>Administrators can now generate an updated site navigation based on the current primary and sub categories, as well as the user created topics.</li>
+            <li></li>
+            <li>The Home page now incorporates the contents of the site navigation files, if they exist, and a default placeholder otherwise.</li>
+            <li>
+                FUTURE IMPROVEMENT'S:
+                <ul>
+                    <li>TODO: Add a recent activities and messages/contact page.</li>
+                    <li>TODO: Present messages on failed login attempts.</li>
+                    <li>TODO: Use JS pattern matching and highlight password boxes before submitting if the values do not match.</li>
+                    <li>TODO: Make sure to change any remaining code not using input_formats or value binding is changed for security.</li>
+                    <li>TODO: When adding new sub-categories do not continue to insert an item if the primaries ID cannot be found.</li>
+                    <li>TODO: Re-factor the code to be more modular.</li>
+                    <ul><li>Create database query functions for crud operations, that take the query, number of items to bind, the values to bind and whether or not to echo "success".</li></ul>
+                    <li>TODO: Add Constraints to the database Tables, and re-factor the code accordingly.</li>
+                    <li>TODO: Optimize everything to make the website faster</li>
+                    <li>TODO: Change the default registration role to G for general user, in register and addUser.php!</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

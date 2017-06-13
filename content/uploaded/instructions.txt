@@ -1,0 +1,31 @@
+Corporate Website Video Progression.
+
+1. load phpFinalProject/index.php
+
+2. Register as Admin, Editor, Mediator
+
+3. Try to register as Admin again,
+
+4. Login as Admin,
+
+5. Create Primary Categories, Feature Events, Products and Services.
+
+6. Create Subcategories for Products and Services, Product 0, Product 1, Product 2, Price Comparisons.
+
+7. logout and login as a mediator.
+
+8. Create Price comparisons topic. (add and remove the various elements, edit them accordingly)
+
+9. save draft, reload page, load draft, and save to url.
+
+10. logout and back in as administrator. 
+
+11. Create a General user account on probation and banned.
+
+12. Save Site Map.
+
+13. logout and in as the general user. (copy and paste the random key)
+
+14. preview all cms uploads.
+
+15. finish with generateFile.php.

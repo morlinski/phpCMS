@@ -1,0 +1,85 @@
+.fixedTopInline 
+{ 
+    position:absolute; 
+    top:0; 
+    left:0;
+    background-image:url("./images/BannerImage2.png");
+    width:100%;
+    height:101px;
+}
+.fixedTopInline * 
+{ 
+    display:inline-block; 
+}
+#TopicsMainEditor 
+{ 
+    margin-top:100px; 
+}
+.rightSidedControl 
+{ 
+    float:right; 
+}
+
+#TopicsWrapper 
+{ 
+    width:100%; 
+    border:1px solid red; 
+}
+#TopicsWrapper div input 
+{ 
+    width:85%; 
+    border:2px solid rgba(0,0,255,0.5); 
+}
+#TopicsWrapper div p 
+{ 
+    width:85%; 
+    border:2px solid black; 
+    border-right:none;
+    border-left:none; 
+    border-color:rgba(130,130,130,0.6); 
+}
+#TopicsWrapper div span 
+{ 
+    width:85%; 
+}
+#TopicsWrapper h2 
+{ 
+    width:85%;
+    border:2px solid black;
+    background-color:rgba(130,130,130,0.4);
+}
+#TopicsWrapper button:first-of-type 
+{ 
+    margin-right:6%;
+}
+
+@media only screen and (max-width: 894px)
+{
+    #TopicsWrapper button:first-of-type { margin:0; width:85%; }
+}
+
+#TopicsWrapper div input:first-of-type { display:inline-block; }
+#TopicsWrapper img~textarea 
+{ 
+    margin-right:2000px; 
+    overflow-x: hidden; 
+    background-color:lightsteelblue;
+}
+
+.takeAll 
+{ 
+    display:block; 
+    position:relative; 
+    top:1.6em; 
+    left:85%; 
+}
+
+body * 
+{ 
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box; 
+}
+.large50 { width:50%; display:inline-block; height:2rem; border-radius:8px; }
+.Xlarge50Right { width:40%; float:right; height:4rem; border-radius:8px; }
+.AuxilaryControl:hover { font-style:italic; }
